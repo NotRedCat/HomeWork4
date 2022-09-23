@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.demoqa.ExampleTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-09-23T16:30:44" hostname="MSI" time="0.008">
+  <properties/>
+  <testcase name="firstTest0()" classname="com.demoqa.ExampleTest" time="0.007"/>
+  <testcase name="firstTest1()" classname="com.demoqa.ExampleTest" time="0.001"/>
+  <system-out><![CDATA[this is the @BeforeAll
+this is the @BeforeEach
+this is the @Test 0
+this is the @AfterEach
+this is the @BeforeEach
+this is the @Test 1
+this is the @AfterEach
+this is the @AfterAll
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
