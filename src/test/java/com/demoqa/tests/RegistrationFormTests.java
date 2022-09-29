@@ -7,22 +7,21 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.demoqa.tests.TestData.*;
+import static java.lang.String.format;
 
-public class RegistrationFormTests {
+public class RegistrationFormTests extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
-    @BeforeAll
-    static void configure() {
-        Configuration.baseUrl = "https://demoqa.com/";
-        Configuration.browserSize = "1800x1200";
+    public void setRegistrationFormPage(RegistrationFormPage registrationFormPage) {
 
     }
 
     @Test
     void fillFormTest() {
         registrationFormPage.openPage()
-                .setFirstName("Ivan")
-                .setLastName("Ivanov")
+                .setFirstName(firstName)
+                .setLastName(lastName)
                 .setEmail("Ivanov@mail.ru")
                 .setGender("Male")
                 .setUserNumber("8924512475")
@@ -34,7 +33,7 @@ public class RegistrationFormTests {
                 .setValuesStateAndCity("NCR", "Gurgaon")
                 .clickSubmit()
                 .checkResultsModalVisible()
-                .checkResult("Student Name", "Ivan Ivanov")
+                .checkResult("Student Name", expectedFullName)
                 .checkResult("Student Email", "Ivanov@mail.ru")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "8924512475")
