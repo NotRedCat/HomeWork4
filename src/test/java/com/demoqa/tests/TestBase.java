@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.util.Map;
 
@@ -18,18 +19,23 @@ import static java.lang.String.format;
 public class TestBase {
 
     @BeforeAll
-    static void configure() {
+    static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
-//        capabilities.setCapability("browserName", "chrome");
-//        capabilities.setCapability("browserVersion", "100.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "100.0");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
+        RemoteWebDriver driver = new RemoteWebDriver(
+                URI.create("https://user1:1234@selenoid.autotests.cloud/wd/hub").toURL(),
+                capabilities
+        );
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com/";
         Configuration.browserSize = "1800x1200";
-      Configuration.remote = "https://user1:1234@selenoid.autotest.cloud/wd/hub";
+     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
 
 
@@ -38,6 +44,6 @@ public class TestBase {
         Attach.screenshotsAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        Attach.addVideo();
+      //  Attach.addVideo();
     }
 }
