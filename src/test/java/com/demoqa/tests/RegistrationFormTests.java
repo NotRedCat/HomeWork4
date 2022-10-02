@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.demoqa.tests.TestData.*;
+import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
 public class RegistrationFormTests extends TestBase {
@@ -19,8 +20,10 @@ public class RegistrationFormTests extends TestBase {
 
     @Test
     void fillFormTest() {
-        registrationFormPage.openPage()
-                .setFirstName(firstName)
+        step("Open registration form", () ->
+        { registrationFormPage.openPage();});
+        step("Filling out  the form with data", () ->
+        {registrationFormPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
                 .setGender(gender)
@@ -30,10 +33,16 @@ public class RegistrationFormTests extends TestBase {
                 .setHobby(hobby)
                 .uploadFile(file)
                 .setAddress(address)
-                .setValuesStateAndCity(state, city)
-                .clickSubmit()
-                .checkResultsModalVisible()
-                .checkResult("Student Name", expectedFullName)
+                .setValuesStateAndCity(state, city);
+        });
+        step("Submitting a form", () ->
+        { registrationFormPage.clickSubmit();
+        });
+        step("Checking for modal visibility", () ->
+        { registrationFormPage.checkResultsModalVisible();
+        });
+        step("Checking that the data is correct", () ->
+        {registrationFormPage.checkResult("Student Name", expectedFullName)
                 .checkResult("Student Email", email)
                 .checkResult("Gender", gender)
                 .checkResult("Mobile", number)
@@ -43,6 +52,7 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("Picture", file)
                 .checkResult("Address", address)
                 .checkResult("State and City", state + " " + city);
+        });
 
     }
 }
