@@ -25,7 +25,7 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         Configuration.browserCapabilities = capabilities;
         String browserName = System.getProperty("browser_name", "firefox");
-        String browserVersion = System.getProperty("browser_version", "105");
+        String browserVersion = System.getProperty("browser_version", "100.0");
         String browserSize = System.getProperty("browser_size", "1920x1080");
         Configuration.browser = browserName;
         Configuration.browserVersion = browserVersion;
