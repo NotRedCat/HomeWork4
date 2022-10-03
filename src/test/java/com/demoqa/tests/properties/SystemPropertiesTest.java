@@ -10,7 +10,7 @@ public class SystemPropertiesTest {
 
     @Test
     @Tag("properties")
-    void simplePropertyTes1() {
+    void simplePropertyTest1() {
         browserName = System.getProperty("browser_name", "firefox");
         browserVersion = System.getProperty("browser_version", "101");
         browserSize = System.getProperty("browser_size", "1920x1080");
@@ -22,7 +22,7 @@ public class SystemPropertiesTest {
 
     @Test
     @Tag("properties")
-    void simplePropertyTes2() {
+    void simplePropertyTest2() {
         browserName = System.getProperty("browser_name", "chrome");
         browserVersion = System.getProperty("browser_version", "100");
         browserSize = System.getProperty("browser_size", "1600x900");
@@ -34,7 +34,7 @@ public class SystemPropertiesTest {
 
     @Test
     @Tag("properties")
-    void simplePropertyTes3() {
+    void simplePropertyTest3() {
         browserName = System.getProperty("browser_name", "firefox");
         browserVersion = System.getProperty("browser_version", "100");
         browserSize = System.getProperty("browser_size", "600x600");
