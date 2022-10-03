@@ -23,7 +23,7 @@ public class TestBase {
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserName", "firefox");
         capabilities.setCapability("browserVersion", "100.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
