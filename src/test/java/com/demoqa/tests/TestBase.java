@@ -24,7 +24,7 @@ public class TestBase {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "firefox");
-        capabilities.setCapability("browserVersion", "100.0");
+        capabilities.setCapability("browserVersion", "98.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
