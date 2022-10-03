@@ -23,8 +23,14 @@ public class TestBase {
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        if (System.getProperty("remote_url") != null) {
-            Configuration.remote = System.getProperty("remote_url");
+        Configuration.browserCapabilities = capabilities;
+        String browserName = System.getProperty("browser_name", "firefox");
+        String browserVersion = System.getProperty("browser_version", "105");
+        String browserSize = System.getProperty("browser_size", "1920x1080");
+        Configuration.browser = browserName;
+        Configuration.browserVersion = browserVersion;
+        Configuration.browserSize = browserSize;
+      /*      Configuration.remote = System.getProperty("remote_url");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
         } else {
@@ -33,7 +39,7 @@ public class TestBase {
             Configuration.browser = System.getProperty("browser_name", "chrome");
             Configuration.browserVersion = System.getProperty("browser_version", "100.0");
             Configuration.browserSize = "1800x1200";
-        }
+        }*/
     }
 
 
