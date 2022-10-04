@@ -8,6 +8,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -18,7 +19,7 @@ import java.util.Map;
 import static java.lang.String.format;
 
 public class TestBase {
-
+    @Tag("properties")
     @BeforeAll
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
