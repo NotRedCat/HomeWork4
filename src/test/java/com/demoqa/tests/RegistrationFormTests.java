@@ -18,8 +18,9 @@ public class RegistrationFormTests extends TestBase {
 
     }
 
-    @Test
+
     @Tag("fillFormTest")
+    @Test
     void fillFormTest() {
         step("Open registration form", () ->
         { registrationFormPage.openPage();});

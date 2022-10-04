@@ -19,8 +19,9 @@ import java.util.Map;
 import static java.lang.String.format;
 
 public class TestBase {
-    @Tag("properties")
+
     @BeforeAll
+    @Tag("properties")
     static void configure() throws MalformedURLException {
       //  Configuration.baseUrl = "https://demoqa.com";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
