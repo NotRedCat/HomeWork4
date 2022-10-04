@@ -50,3 +50,8 @@ task properties_test(type: Test){
         includeTags "properties"
     }
 }
+task fillFormTest(type: Test){
+    useJUnitPlatform {
+        includeTags "fillFormTest"
+    }
+}
