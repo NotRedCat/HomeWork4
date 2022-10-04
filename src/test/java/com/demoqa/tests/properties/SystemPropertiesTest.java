@@ -11,9 +11,9 @@ public class SystemPropertiesTest {
     @Test
     @Tag("properties")
     void simplePropertyTest1() {
-        browserName = System.getProperty("browser_name", "firefox");
-        browserVersion = System.getProperty("browser_version", "101");
-        browserSize = System.getProperty("browser_size", "1920x1080");
+        browserName = System.getProperty("browser_name");
+        browserVersion = System.getProperty("browser_version");
+        browserSize = System.getProperty("browser_size");
 
         System.out.println(browserName);
         System.out.println(browserVersion);
