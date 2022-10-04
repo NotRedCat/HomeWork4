@@ -22,6 +22,7 @@ public class TestBase {
     @Tag("properties")
     @BeforeAll
     static void configure() throws MalformedURLException {
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -29,6 +30,7 @@ public class TestBase {
             Configuration.remote = System.getProperty("remote_url");
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
+
         }
 
         Configuration.browser = System.getProperty("browser_name", "chrome");
@@ -37,6 +39,9 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
+        System.out.println(Configuration.browser);
+        System.out.println(Configuration.browserVersion);
+        System.out.println(Configuration.browserSize);
 
     }
 
