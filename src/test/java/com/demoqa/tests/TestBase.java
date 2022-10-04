@@ -22,7 +22,7 @@ public class TestBase {
     @Tag("properties")
     @BeforeAll
     static void configure() throws MalformedURLException {
-
+      //  Configuration.baseUrl = "https://demoqa.com";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -38,7 +38,6 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
         Configuration.browserCapabilities = capabilities;
-        Configuration.baseUrl = "https://demoqa.com";
         System.out.println(Configuration.browser);
         System.out.println(Configuration.browserVersion);
         System.out.println(Configuration.browserSize);
