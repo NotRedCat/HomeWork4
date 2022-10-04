@@ -23,8 +23,8 @@ public class TestBase {
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "firefox");
-        capabilities.setCapability("browserVersion", "98.0");
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "100.0");
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
@@ -38,6 +38,8 @@ public class TestBase {
         Configuration.browserSize = "1800x1200";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
+
+
 
 
     @AfterEach
