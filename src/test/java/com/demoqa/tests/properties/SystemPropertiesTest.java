@@ -20,33 +20,4 @@ public class SystemPropertiesTest {
         System.out.println(browserSize);
     }
 
-    @Test
-    @Tag("properties")
-    void simplePropertyTest2() {
-        browserName = System.getProperty("browser_name", "chrome");
-        browserVersion = System.getProperty("browser_version", "100");
-        browserSize = System.getProperty("browser_size", "1600x900");
-
-        System.out.println(browserName);
-        System.out.println(browserVersion);
-        System.out.println(browserSize);
-    }
-
-    @Test
-    @Tag("properties")
-    void simplePropertyTest3() {
-        browserName = System.getProperty("browser_name", "firefox");
-        browserVersion = System.getProperty("browser_version", "100");
-        browserSize = System.getProperty("browser_size", "600x600");
-
-        System.out.println(browserName);
-        System.out.println(browserVersion);
-        System.out.println(browserSize);
-    }
-
-    @Test
-    @Tag("hello")
-    void simplePropertyTes5() {
-        System.out.println("Hello, " + System.getProperty("some_text", "qa.guru"));
-    }
 }
