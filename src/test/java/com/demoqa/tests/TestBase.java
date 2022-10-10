@@ -28,10 +28,17 @@ public class TestBase {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         if (System.getProperty("remote_url") != null) {
-            Configuration.remote = System.getProperty("remote_url");
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
 
+            capabilities.setCapability("browserName", "chrome");
+            capabilities.setCapability("browserVersion", "100.0");
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            RemoteWebDriver driver = new RemoteWebDriver(
+                    URI.create("remote_url").toURL(),
+                    capabilities
+            );
         }
 
         Configuration.browser = System.getProperty("browser_name", "chrome");
