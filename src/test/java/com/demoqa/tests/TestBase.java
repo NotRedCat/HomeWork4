@@ -3,16 +3,13 @@ package com.demoqa.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.helpers.Attach;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TestBase {
-    WebDriver driver;
+
     @BeforeAll
     static void configure()  {
       //  Configuration.baseUrl = "https://demoqa.com";
@@ -32,10 +29,6 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
         Configuration.browserCapabilities = capabilities;
-    }
-    @BeforeEach
-    void setup() {
-        driver = WebDriverManager.chromedriver().create();
     }
 
 
