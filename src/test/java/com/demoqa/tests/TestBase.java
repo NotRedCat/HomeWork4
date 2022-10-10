@@ -3,18 +3,20 @@ package com.demoqa.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demoqa.helpers.Attach;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static java.lang.String.format;
-
 public class TestBase {
-
+    WebDriver driver;
     @BeforeAll
     static void configure()  {
       //  Configuration.baseUrl = "https://demoqa.com";
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -31,6 +33,11 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
     }
+    @BeforeEach
+    void setup() {
+        driver = WebDriverManager.chromedriver().create();
+    }
+
 
     @AfterEach
     void addAttachments() {
