@@ -21,7 +21,6 @@ import static java.lang.String.format;
 public class TestBase {
 
     @BeforeAll
-    @Tag("properties")
     static void configure()  {
       //  Configuration.baseUrl = "https://demoqa.com";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
