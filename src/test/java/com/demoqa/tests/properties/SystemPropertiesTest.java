@@ -9,7 +9,7 @@ public class SystemPropertiesTest {
             browserSize;
 
     @Test
-
+    @Tag("properties_test")
     void simplePropertyTest1() {
         browserName = System.getProperty("browser_name", "firefox");
         browserVersion = System.getProperty("browser_version", "101");
