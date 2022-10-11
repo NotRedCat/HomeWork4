@@ -36,7 +36,9 @@ public class TestBase {
         Configuration.browserSize = "1800x1200";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";*/
 
-
+        System.out.println("remote_url");
+        System.out.println(System.getProperty("remote_url"));
+        System.out.println(System.getProperty("REMOTE_URL"));
 
         if (System.getProperty("remote_url") != null){
 
