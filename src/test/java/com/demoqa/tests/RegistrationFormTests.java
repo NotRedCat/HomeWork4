@@ -3,6 +3,7 @@ package com.demoqa.tests;
 import com.codeborne.selenide.Configuration;
 import com.demoqa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -18,6 +19,7 @@ public class RegistrationFormTests extends TestBase {
     }
 
     @Test
+    @Tag("fillFormTest")
     void fillFormTest() {
         step("Open registration form", () ->
         { registrationFormPage.openPage();});
