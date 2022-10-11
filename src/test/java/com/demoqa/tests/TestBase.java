@@ -22,17 +22,21 @@ public class TestBase {
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        if (System.getProperty("remote_url") != null) {
-            Configuration.remote = System.getProperty("remote_url");
-            capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
-        }
-
-        Configuration.browser = System.getProperty("browser_name", "chrome");
-        Configuration.browserVersion = System.getProperty("browser_version", "100.0");
-        Configuration.browserSize = System.getProperty("browser_size", "1800x1000");
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enableVNC", true,
+                "enableVideo", true
+        ));
         Configuration.browserCapabilities = capabilities;
-
+        Configuration.baseUrl = "https://demoqa.com/";
+        if (System.getProperty("remote_url") != null){
+            Configuration.browser = System.getProperty("browser_name");
+            Configuration.browserVersion = System.getProperty("browser_version");
+            Configuration.browserSize = System.getProperty("browser_size");
+            Configuration.remote = System.getProperty("remote_url");
+        } else {
+            Configuration.browserSize = "1800x1200";
+            Configuration.browser = "chrome";
+        }
     }
 
 
