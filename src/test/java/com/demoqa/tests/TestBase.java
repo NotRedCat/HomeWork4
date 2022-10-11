@@ -39,6 +39,7 @@ public class TestBase {
 
 
         if (System.getProperty("remote_url") != null){
+
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "100.0");
             Configuration.browserSize = "1800x1200";
@@ -55,7 +56,12 @@ public class TestBase {
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "100.0");
             Configuration.browserSize = "1800x1200";
-            Configuration.browser = "chrome";
+            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+            /*capabilities.setCapability("browserName", "chrome");
+            capabilities.setCapability("browserVersion", "100.0");
+            Configuration.browserSize = "1800x1200";
+            Configuration.browser = "chrome";*/
         }
     }
 
