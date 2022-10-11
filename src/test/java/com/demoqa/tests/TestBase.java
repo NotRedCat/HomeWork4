@@ -22,12 +22,19 @@ public class TestBase {
     static void configure() throws MalformedURLException {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        Configuration.browserCapabilities = capabilities;
+        Configuration.baseUrl = "https://demoqa.com/";
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
                 "enableVideo", true
         ));
-        Configuration.browserCapabilities = capabilities;
-        Configuration.baseUrl = "https://demoqa.com/";
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("browserVersion", "100.0");
+        Configuration.browserSize = "1800x1200";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+
+        /*
         if (System.getProperty("remote_url") != null){
             Configuration.browser = System.getProperty("browser_name");
             Configuration.browserVersion = System.getProperty("browser_version");
@@ -36,7 +43,7 @@ public class TestBase {
         } else {
             Configuration.browserSize = "1800x1200";
             Configuration.browser = "chrome";
-        }
+        }*/
     }
 
 
