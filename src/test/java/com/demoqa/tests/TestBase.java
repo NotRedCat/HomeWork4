@@ -31,17 +31,7 @@ public class TestBase {
         ));
 
 
-
-        /*capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "100.0");
-        Configuration.browserSize = "1800x1200";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";*/
-
-        System.out.println("remote_url");
-        System.out.println(System.getProperty("remote_url"));
-        System.out.println(System.getProperty("REMOTE_URL"));
-
-        if (System.getProperty("remote_url") != null){
+        if (System.getProperty("remote_url") != null) {
 
             capabilities.setCapability("browserName", System.getProperty("browser_name"));
             capabilities.setCapability("browserVersion", System.getProperty("browser_version"));
@@ -51,14 +41,14 @@ public class TestBase {
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("browserVersion", "100.0");
             Configuration.browserSize = "1800x1200";
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+            //  Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         }
     }
 
 
     @AfterEach
-    void addAttachments(){
+    void addAttachments() {
         Attach.screenshotsAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
